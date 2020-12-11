@@ -87,8 +87,49 @@ body {
 
 
 .contact-list {
+  display: flex;
+  flex-direction: column;
   height: 80%;
   overflow-y: scroll;
+}
+
+.single-contact {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid lightgray;
+}
+
+.single-contact:hover {
+  cursor: pointer;
+  background-color: lightgray;
+}
+
+.contact-container {
+  width: 60%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 5px 20px;
+}
+
+.contact-container li {
+  list-style: none;
+}
+
+.contact-container h6 {
+  color: #76A5B3;
+}
+
+.data-last-message {
+  display: flex;
+  justify-content: flex-end;
+  width: 40%;
+  padding: 5px;
+}
+
+.contact-img {
+  width: 20%;
+  margin-right: 20px;
 }
 
 .user-nav , .message-nav {
