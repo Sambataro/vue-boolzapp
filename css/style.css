@@ -2,7 +2,11 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: 'Roboto', "FontAwesome", sans-serif;
 }
+
+:focus { outline: none; }
+
 
 body {
   display: flex;
@@ -11,6 +15,7 @@ body {
   background-image: linear-gradient(#239588 0%, #239588 20%, #DDDBD5 0%);
   height: 100vh;
 }
+
 
 #app {
   display: flex;
@@ -31,9 +36,55 @@ body {
 }
 
 .notify-option {
-  height: 20%;
+  display: flex;
+  align-items: center;
+  height: 15%;
   border-bottom: 1px solid lightgray;
+  background-color: #90D9FD;
 }
+
+.bell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+}
+
+.fas.fa-bell-slash {
+  border-radius: 50%;
+  padding: 10px;
+  background-color: white;
+  color: #90D9FD;
+  font-size: 150%;
+}
+
+
+.notify {
+  width: 80%;
+}
+
+.notify h6 {
+  color: #76A5B3;
+  text-decoration: underline;
+}
+
+.search-contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5%;
+  background-color: #EBE9EB;
+}
+
+.search-contact input {
+  width: 95%;
+  height: 80%;
+  border: 1px solid white;
+  border-radius: 5%;
+}
+
+
+
 
 .contact-list {
   height: 80%;
@@ -45,12 +96,68 @@ body {
   width: 100%;
   background-color: #EBE9EB;
 }
+
+.user-container {
+  width: 60%;
+  display: flex;
+  align-items: center;
+}
+
+.user-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.user-nav h4 {
+  cursor: pointer;
+}
+
+#user-img {
+  width: 20%;
+  margin-right: 20px;
+}
+
+#user-img:hover {
+  cursor: pointer;
+}
+
+
+.user-nav li , .search-chat li {
+  list-style: none;
+  display: inline-block;
+  padding: 0 10px;
+  font-size: 20px;
+  color: #BCBBBF;
+}
+.user-nav li:hover , .search-chat li:hover {
+  cursor: pointer;
+  color: gray;
+  transition: 0.5s;
+}
 /* /sezione utente e contatti */
 /* sezione messaggi chat */
 .main-message {
   width: 60%;
-  background-color: green;
 }
+
+.message-nav {
+  display: flex;
+  align-items: center;
+}
+
+.contact-selected {
+  width: 60%;
+  height: 100%;
+}
+
+.search-chat {
+  display: flex;
+  justify-content: flex-end;
+  width: 40%;
+}
+
 
 .chat {
   height: 80%;
