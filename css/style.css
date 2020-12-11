@@ -1,0 +1,68 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(#239588 0%, #239588 20%, #DDDBD5 0%);
+  height: 100vh;
+}
+
+#app {
+  display: flex;
+  width: 80%;
+  height: 90%;
+  background-color: white;
+}
+/* sezione utente e contatti */
+.sidebar-contact {
+  width: 40%;
+  border-right: 1px solid lightgray;
+}
+
+.contact {
+  display:flex;
+  flex-direction: column;
+  height: 90%;
+}
+
+.notify-option {
+  height: 20%;
+  border-bottom: 1px solid lightgray;
+}
+
+.contact-list {
+  height: 80%;
+  overflow-y: scroll;
+}
+
+.user-nav , .message-nav {
+  height: 10%;
+  width: 100%;
+  background-color: #EBE9EB;
+}
+/* /sezione utente e contatti */
+/* sezione messaggi chat */
+.main-message {
+  width: 60%;
+  background-color: green;
+}
+
+.chat {
+  height: 80%;
+  width: 100%;
+  background-image: url(https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png);
+  background-size: contain;
+  overflow-y: scroll;
+}
+
+.input-area {
+  height: 10%;
+  width: 100%;
+  background-color: #EBE9EB;
+}
+/* /sezione messaggi chat */
