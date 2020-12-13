@@ -80,7 +80,7 @@ body {
   width: 95%;
   height: 80%;
   border: 1px solid white;
-  border-radius: 5%;
+  border-radius: 5px;
 }
 
 
@@ -201,6 +201,8 @@ body {
 
 
 .chat {
+  display: flex;
+  flex-direction: column;
   height: 80%;
   width: 100%;
   background-image: url(https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png);
@@ -208,9 +210,70 @@ body {
   overflow-y: scroll;
 }
 
+.my-message-block{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  height: 20%;
+}
+
+.received-message-block {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 20%;
+}
+
+.my-message {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-right: 50px;
+  padding: 10px;
+  width: 60%;
+  height: 80%;
+  background-color: #B9F3B9;
+  border-radius: 10px;
+}
+
+.received-message {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 50px;
+  padding: 10px;
+  width: 60%;
+  height: 80%;
+  background-color: #EBE9EB;
+  border-radius: 10px;
+}
+
+
 .input-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 10%;
   width: 100%;
   background-color: #EBE9EB;
+  font-size: 20px;
+  color: #BCBBBF;
+}
+
+.input-area i:hover {
+  cursor: pointer;
+  color: gray;
+  transition: 0.5s;
+}
+
+.input-area input {
+  width: 70%;
+  height: 60%;
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 0 50px;
 }
 /* /sezione messaggi chat */
