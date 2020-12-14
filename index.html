@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- vue.js  -->
      <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+     <!--Moment.js-->
+    <script src="https://cdn.jsdelivr.net/npm/vue-moment@4.0.0-0/vue-moment.min.js">
+    </script>
     <title>boolzapp</title>
   </head>
   <body>
@@ -43,7 +46,8 @@
           </div>
 
           <div class="contact-list">
-            <div v-for="(contact, index) in contacts" class="single-contact">
+            <div v-for="(contact, index) in contacts" @click="booleanClass(index)"
+            :class="activeIndex == index ? 'active' : ''" class="single-contact">
               <div class="contact-container">
                 <img class="contact-img" :src="contact.avatar">
                 <ul>
@@ -63,9 +67,14 @@
 
       <div class="main-message">
         <div class="message-nav">
-          <div class="contact-selected">
-
+          <div class="contact-selected" v-for="contact in contacts" v-if="contact.visible">
+            <img :src="contact.avatar">
+            <ul>
+              <li><h4>{{contact.name}}</h4></li>
+              <li><h6>Ultimo accesso oggi alle {{contact.messages[contact.messages.length-1].date}}</h6></li>
+            </ul>
           </div>
+
           <div class="search-chat">
             <ul>
               <li><i class="fas fa-search"></i></li>
@@ -76,17 +85,14 @@
         </div>
         <div class="chat">
 
-          <div class="my-message-block">
-            <div class="my-message">
-              <h5>prova messaggio</h5>
+          <div
+          v-for="key in contacts[objectIndex].messages"
+          class="message-block clearfix">
+            <div class="message" :class="key.status == 'sent' ? 'sent' : 'received'">
+              <h5>{{key.text}}</h5>
+              <p>{{key.date}}</p>
             </div>
           </div>
-          <div class="received-message-block">
-            <div class="received-message">
-              <h5>prova messaggio</h5>
-            </div>
-          </div>
-
         </div>
 
         <div class="input-area">

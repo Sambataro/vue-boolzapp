@@ -27,7 +27,7 @@ var app = new Vue({
     	{
     		name: 'Fabio',
     		avatar: 'https://cdn.iconscout.com/icon/free/png-256/avatar-375-456327.png',
-    		visible: true,
+    		visible: false,
     		messages: [
     			{
     				date: '20/03/2020 16:30:00',
@@ -49,7 +49,7 @@ var app = new Vue({
     	{
     		name: 'Samuele',
     		avatar: 'https://cdn.iconscout.com/icon/free/png-256/avatar-375-456327.png',
-    		visible: true,
+    		visible: false,
     		messages: [
     			{
     				date: '28/03/2020 10:10:40',
@@ -71,7 +71,7 @@ var app = new Vue({
     	{
     		name: 'Luisa',
     		avatar: 'https://cdn.iconscout.com/icon/free/png-256/avatar-375-456327.png',
-    		visible: true,
+    		visible: false,
     		messages: [
     			{
     				date: '10/01/2020 15:30:55',
@@ -86,8 +86,21 @@ var app = new Vue({
     		],
     	},
     ],
+    objectIndex: 0,
+    },
 
-    }
+    methods: {
+			booleanClass: function (index) {
+				this.contacts.forEach(
+					(object, index) => {
+						object.visible = false;
+					}
+				);
+				this.objectIndex = index;
+				this.contacts[index].visible = true;
+			}
+
+		}
 
 
 });

@@ -81,6 +81,7 @@ body {
   height: 80%;
   border: 1px solid white;
   border-radius: 5px;
+  padding: 0 10px;
 }
 
 
@@ -189,14 +190,26 @@ body {
 }
 
 .contact-selected {
-  width: 60%;
-  height: 100%;
+  display: flex;
+  align-items: center;
+  width: 80%;
+  margin-left: 20px;
+}
+
+.contact-selected img {
+  width: 10%;
+}
+
+.contact-selected li {
+  list-style: none;
+  margin-left: 10px;
+
 }
 
 .search-chat {
   display: flex;
   justify-content: flex-end;
-  width: 40%;
+  width: 20%;
 }
 
 
@@ -210,45 +223,50 @@ body {
   overflow-y: scroll;
 }
 
-.my-message-block{
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+.message-block{
+  margin: 10px;
   width: 100%;
-  height: 20%;
 }
 
-.received-message-block {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100%;
-  height: 20%;
-}
 
-.my-message {
+
+.message {
+  position: relative;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  margin-right: 50px;
+  margin: 10px 50px;
   padding: 10px;
-  width: 60%;
-  height: 80%;
+  width: 40%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.message.sent {
+  float: right;
   background-color: #B9F3B9;
-  border-radius: 10px;
+
+}
+.message.received {
+  float: left;
+  background-color: #EBE9EB;
 }
 
-.received-message {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin-left: 50px;
-  padding: 10px;
-  width: 60%;
-  height: 80%;
-  background-color: #EBE9EB;
-  border-radius: 10px;
+.message p {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 10px;
+  margin-bottom: 5px;
+
 }
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
 
 
 .input-area {
@@ -276,4 +294,5 @@ body {
   padding: 10px;
   margin: 0 50px;
 }
+
 /* /sezione messaggi chat */
