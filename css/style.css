@@ -40,7 +40,7 @@ body {
 .notify-option {
   display: flex;
   align-items: center;
-  height: 15%;
+  height: 10%;
   border-bottom: 1px solid lightgray;
   background-color: #90D9FD;
 }
@@ -74,7 +74,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 5%;
+  height: 10%;
   background-color: #EBE9EB;
 }
 

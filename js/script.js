@@ -27,7 +27,7 @@ var app = new Vue({
     	{
     		name: 'Fabio',
     		avatar: 'https://cdn.iconscout.com/icon/premium/png-64-thumb/avatar-1641438-1392920.png',
-    		visible: false,
+    		visible: true,
     		messages: [
     			{
     				date: '20/03/2020 16:30:00',
@@ -49,7 +49,7 @@ var app = new Vue({
     	{
     		name: 'Samuele',
     		avatar: 'https://cdn.iconscout.com/icon/premium/png-64-thumb/male-avatar-36-1128949.png',
-    		visible: false,
+    		visible: true,
     		messages: [
     			{
     				date: '28/03/2020 10:10:40',
@@ -71,7 +71,7 @@ var app = new Vue({
     	{
     		name: 'Luisa',
     		avatar: 'https://cdn.iconscout.com/icon/free/png-64/avatar-1924065-1628715.png',
-    		visible: false,
+    		visible: true,
     		messages: [
     			{
     				date: '10/01/2020 15:30:55',
@@ -88,6 +88,7 @@ var app = new Vue({
     ],
     objectIndex: 0,
     inputMessage: "",
+    inputFieldRubrica: "",
     objectInputMessage: {},
     botMessage: {}
     },
@@ -96,7 +97,7 @@ var app = new Vue({
       booleanClass: function (index) {
         this.objectIndex = index;
       },
-
+// -------------------------------------
       addMessage: function() {
         var backup = this.contacts[this.objectIndex].messages;
         this.objectInputMessage.text = this.inputMessage;
@@ -116,13 +117,21 @@ var app = new Vue({
   						this.botMessage = {};
   					}, 2000);
       },
+// -------------------------------------------
 
+
+      rubrica: function() {
+        this.contacts.forEach(
+          (element) => {
+            element.visible = false;
+            if (element.name.includes(this.inputFieldRubrica)) {
+              element.visible = true;
+            }
+        }
+      );
+    },
 
 
 
 		}
-
-
-
-
 });

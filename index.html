@@ -37,20 +37,25 @@
               <i class="fas fa-bell-slash"></i>
             </div>
             <div class="notify">
-              <h4>Ricevi notifiche di nuovi messggi</h4>
+              <h4>Ricevi notifiche di nuovi messaggi</h4>
               <h6>Attiva notifiche desktop</h6>
             </div>
           </div>
           <div class="search-contact">
-            <input type="text" placeholder="&#xF002; Cerca o inizia una nuova chat" style="font-family:Arial, FontAwesome" />
+            <input type="text"
+            name=""
+            value=""
+            v-model="inputFieldRubrica"
+            placeholder="&#xF002; Cerca o inizia una nuova chat" style="font-family:Arial, FontAwesome"
+            v-on:keyup.13="rubrica()">
           </div>
 
           <div class="contact-list">
             <div v-for="(contact,index) in contacts">
-              <div  @click="booleanClass(index)"
+              <div v-if="contact.visible" @click="booleanClass(index)"
               :class="objectIndex == index ? 'active' : ''" class="single-contact">
                 <div class="contact-container">
-                  <img class="contact-img" :src="contact.avatar">
+                  <img class="contact-img"  :src="contact.avatar">
                   <ul>
                     <li><h4>{{contact.name}}</h4> </li>
                     <li><h6>{{contact.messages[contact.messages.length-1].text}}</h6></li>
