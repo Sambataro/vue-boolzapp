@@ -7,7 +7,9 @@
 
 :focus { outline: none; }
 
-
+img {
+  border-radius: 50%;
+}
 body {
   display: flex;
   justify-content: center;
@@ -194,6 +196,7 @@ body {
   align-items: center;
   width: 80%;
   margin-left: 20px;
+  margin-right: 140px;
 }
 
 .contact-selected img {

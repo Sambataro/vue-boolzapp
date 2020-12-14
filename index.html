@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- vue.js  -->
      <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-     <!--Moment.js-->
-    <script src="https://cdn.jsdelivr.net/npm/vue-moment@4.0.0-0/vue-moment.min.js">
+     <!-- data e ora -->
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
     </script>
     <title>boolzapp</title>
   </head>
@@ -21,8 +21,8 @@
       <div class="sidebar-contact">
         <div class="user-nav">
           <div class="user-container">
-            <img id="user-img" src="https://cdn.iconscout.com/icon/free/png-256/avatar-375-456327.png" alt="user photo">
-            <h4>Luke Skywalker</h4>
+            <img id="user-img" src="https://cdn.iconscout.com/icon/premium/png-64-thumb/avatar-1641437-1392919.png" alt="user photo">
+            <h4>Fortunato</h4>
           </div>
           <ul>
             <li><i class="fas fa-circle-notch"></i></li>
@@ -46,19 +46,22 @@
           </div>
 
           <div class="contact-list">
-            <div v-for="(contact, index) in contacts" @click="booleanClass(index)"
-            :class="activeIndex == index ? 'active' : ''" class="single-contact">
-              <div class="contact-container">
-                <img class="contact-img" :src="contact.avatar">
-                <ul>
-                  <li><h4>{{contact.name}}</h4> </li>
-                  <li><h6>{{contact.messages[contact.messages.length-1].text}}</h6></li>
-                </ul>
-              </div>
-              <div class="data-last-message">
-                <h6>{{contact.messages[contact.messages.length-1].date}}</h6>
+            <div v-for="(contact,index) in contacts">
+              <div  @click="booleanClass(index)"
+              :class="objectIndex == index ? 'active' : ''" class="single-contact">
+                <div class="contact-container">
+                  <img class="contact-img" :src="contact.avatar">
+                  <ul>
+                    <li><h4>{{contact.name}}</h4> </li>
+                    <li><h6>{{contact.messages[contact.messages.length-1].text}}</h6></li>
+                  </ul>
+                </div>
+                <div class="data-last-message">
+                  <h6>{{contact.messages[contact.messages.length-1].date}}</h6>
+                </div>
               </div>
             </div>
+
 
           </div>
         </div>
@@ -67,12 +70,16 @@
 
       <div class="main-message">
         <div class="message-nav">
-          <div class="contact-selected" v-for="contact in contacts" v-if="contact.visible">
-            <img :src="contact.avatar">
-            <ul>
-              <li><h4>{{contact.name}}</h4></li>
-              <li><h6>Ultimo accesso oggi alle {{contact.messages[contact.messages.length-1].date}}</h6></li>
-            </ul>
+
+          <div v-for="(contact, index) in contacts">
+            <div  class="contact-selected" v-if="objectIndex == index">
+                <img :src="contact.avatar">
+                <ul>
+                  <li><h4>{{contact.name}}</h4></li>
+                  <li><h6>Ultimo accesso oggi alle {{contact.messages[contact.messages.length-1].date}}</h6></li>
+                </ul>
+
+            </div>
           </div>
 
           <div class="search-chat">
@@ -97,10 +104,15 @@
 
         <div class="input-area">
           <i class="far fa-smile"></i>
-          <input type="text" placeholder="Scrivi un messaggio">
+          <input
+          type="text"
+          name=""
+          value=""
+          v-model="inputMessage"
+          v-on:keydown.enter="addMessage()"
+          placeholder="Scrivi un messaggio">
           <i class="fas fa-microphone"></i>
         </div>
-
 
       </div>
 

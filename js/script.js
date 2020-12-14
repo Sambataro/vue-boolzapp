@@ -4,7 +4,7 @@ var app = new Vue({
       contacts: [
     	{
     		name: 'Michele',
-    		avatar: 'https://cdn.iconscout.com/icon/free/png-256/avatar-375-456327.png',
+    		avatar: 'https://cdn.iconscout.com/icon/premium/png-64-thumb/avatar-1581-1129070.png',
     		visible: true,
     		messages: [
     			{
@@ -26,7 +26,7 @@ var app = new Vue({
     	},
     	{
     		name: 'Fabio',
-    		avatar: 'https://cdn.iconscout.com/icon/free/png-256/avatar-375-456327.png',
+    		avatar: 'https://cdn.iconscout.com/icon/premium/png-64-thumb/avatar-1641438-1392920.png',
     		visible: false,
     		messages: [
     			{
@@ -48,7 +48,7 @@ var app = new Vue({
     	},
     	{
     		name: 'Samuele',
-    		avatar: 'https://cdn.iconscout.com/icon/free/png-256/avatar-375-456327.png',
+    		avatar: 'https://cdn.iconscout.com/icon/premium/png-64-thumb/male-avatar-36-1128949.png',
     		visible: false,
     		messages: [
     			{
@@ -70,7 +70,7 @@ var app = new Vue({
     	},
     	{
     		name: 'Luisa',
-    		avatar: 'https://cdn.iconscout.com/icon/free/png-256/avatar-375-456327.png',
+    		avatar: 'https://cdn.iconscout.com/icon/free/png-64/avatar-1924065-1628715.png',
     		visible: false,
     		messages: [
     			{
@@ -87,20 +87,42 @@ var app = new Vue({
     	},
     ],
     objectIndex: 0,
+    inputMessage: "",
+    objectInputMessage: {},
+    botMessage: {}
     },
 
     methods: {
-			booleanClass: function (index) {
-				this.contacts.forEach(
-					(object, index) => {
-						object.visible = false;
-					}
-				);
-				this.objectIndex = index;
-				this.contacts[index].visible = true;
-			}
+      booleanClass: function (index) {
+        this.objectIndex = index;
+      },
+
+      addMessage: function() {
+        var backup = this.contacts[this.objectIndex].messages;
+        this.objectInputMessage.text = this.inputMessage;
+        this.inputMessage = "";
+				this.objectInputMessage.status = "sent";
+				this.objectInputMessage.date = dayjs().format('DD/MM/YYYY H:mm:ss');
+				backup.push(this.objectInputMessage);
+        this.objectInputMessage = {};
+
+        // risposta bot
+        setTimeout(
+  					() => {
+  						this.botMessage.text = "Ok!",
+  						this.botMessage.date = dayjs().format('DD/MM/YYYY H:mm:ss');
+  						this.botMessage.status = "received",
+  						backup.push(this.botMessage);
+  						this.botMessage = {};
+  					}, 2000);
+      },
+
+
+
 
 		}
+
+
 
 
 });
