@@ -102,8 +102,17 @@
           class="message-block clearfix">
             <div class="message" :class="key.status == 'sent' ? 'sent' : 'received'">
               <h5>{{key.text}}</h5>
-              <p>{{key.date}}</p>
+
+              <p><i @click="toggleChevron(objectIndex)" class="fas fa-chevron-down"></i></p>
+              <!-- <p></p> -->
+              <div :class="[scope && selectedMessage === objectIndex ? 'show' : '']" class="menu">
+                <ul>
+                  <li>{{key.date}}</li>
+                  <li>Delete Message</li>
+                </ul>
+              </div>
             </div>
+
           </div>
         </div>
 
