@@ -100,10 +100,10 @@ body {
   display: flex;
   width: 100%;
   border-bottom: 1px solid lightgray;
+  cursor: pointer;
 }
 
-.single-contact:hover {
-  cursor: pointer;
+.active {
   background-color: lightgray;
 }
 
