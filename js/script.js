@@ -89,8 +89,6 @@ var app = new Vue({
     objectIndex: 0,
     inputMessage: "",
     inputFieldRubrica: "",
-    objectInputMessage: {},
-    botMessage: {}
     },
 
     methods: {
@@ -99,23 +97,24 @@ var app = new Vue({
       },
 // -------------------------------------
       addMessage: function() {
-        var backup = this.contacts[this.objectIndex].messages;
-        this.objectInputMessage.text = this.inputMessage;
-        this.inputMessage = "";
-				this.objectInputMessage.status = "sent";
-				this.objectInputMessage.date = dayjs().format('DD/MM/YYYY H:mm:ss');
-				backup.push(this.objectInputMessage);
-        this.objectInputMessage = {};
+        var backup = {
+          date: dayjs().format('DD/MM/YYYY H:mm:ss'),
+          text: this.inputMessage,
+          status: 'sent'
+        };
 
+        this.contacts[this.objectIndex].messages.push(backup);
+        this.inputMessage = "";
         // risposta bot
         setTimeout(
   					() => {
-  						this.botMessage.text = "Ok!",
-  						this.botMessage.date = dayjs().format('DD/MM/YYYY H:mm:ss');
-  						this.botMessage.status = "received",
-  						backup.push(this.botMessage);
-  						this.botMessage = {};
-  					}, 2000);
+              var botMessage = {
+                date: dayjs().format('DD/MM/YYYY H:mm:ss'),
+                text: "Ok boomer",
+                status: 'received'
+              };
+              this.contacts[this.objectIndex].messages.push(botMessage);
+  					}, 1000);
       },
 // -------------------------------------------
 
