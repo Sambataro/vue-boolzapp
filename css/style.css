@@ -18,7 +18,6 @@ body {
   height: 100vh;
 }
 
-
 #app {
   display: flex;
   width: 80%;
@@ -103,8 +102,8 @@ body {
   cursor: pointer;
 }
 
-.active {
-  background-color: lightgray;
+.single-contact:hover {
+  background-color: #EBE9EB;
 }
 
 .contact-container {
@@ -121,6 +120,7 @@ body {
 
 .contact-container h6 {
   color: #76A5B3;
+  text-overflow: ellipsis;
 }
 
 .data-last-message {
@@ -188,6 +188,7 @@ body {
 
 .message-nav {
   display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -196,11 +197,10 @@ body {
   align-items: center;
   width: 80%;
   margin-left: 20px;
-  margin-right: 140px;
 }
 
 .contact-selected img {
-  width: 10%;
+  width: 45px;
 }
 
 .contact-selected li {
@@ -224,6 +224,8 @@ body {
   background-image: url(https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png);
   background-size: contain;
   overflow-y: scroll;
+  overflow-x: hidden;
+  padding-bottom: 100px;
 }
 
 .message-block{
@@ -257,20 +259,32 @@ body {
   position: absolute;
   top: 20px;
   right: 5px;
-  width: 40%;
-  height: 120%;
-  background-color: white;
-  display: none;
-  z-index: 3
+  width: 60%;
+  border-radius: 5px;
+  background-color: #ebe9eb;
+;
+  z-index: 3;
+  box-shadow: 0 0 3px #ccc;
 }
 .menu li {
   display: flex;
   justify-content: center;
   align-items: center;
   list-style: none;
-  color: #858585;
   font-size: 10px;
-  padding: 10px;
+  padding: 10px 0;
+  width: 100%;
+  cursor: default;
+}
+.menu li a {
+  text-decoration: none;
+  font-size: 14px;
+  color:black;
+}
+
+.menu li:last-child:hover {
+  background-color: lightgray;
+  cursor: pointer;
 }
 
 .show {
